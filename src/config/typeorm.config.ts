@@ -6,10 +6,10 @@ export const getTypeOrmConfig = async (
 ): Promise<TypeOrmModuleOptions> => ({
 	type: 'postgres',
 	host: 'localhost',
-	port: configService.get('PORT'),
-	database: configService.get('rutube-2'),
-	username: configService.get('USERNAME'),
-	password: configService.get('PASSWORD'),
+	port: configService.get('PORT_DB'),
+	database: configService.get('DATABASE'),
+	username: configService.get('USERNAME_DB'),
+	password: configService.get('PASSWORD_DB'),
 	autoLoadEntities: true,
 	synchronize: true,
 });
