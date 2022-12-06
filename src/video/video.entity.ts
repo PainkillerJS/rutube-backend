@@ -1,8 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany } from 'typeorm';
 
 import { CommentEntity } from '../comment/comment.entity';
 import { BaseEntity } from '../common/utils/base.entity';
-import { SubscriptionsEntity } from '../user/entities/subscriptions.entity';
 import { UserEntity } from '../user/entities/user.entity';
 
 @Entity('video')

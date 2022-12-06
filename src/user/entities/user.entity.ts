@@ -1,6 +1,5 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 
-import { CommentEntity } from '../../comment/comment.entity';
 import { BaseEntity } from '../../common/utils/base.entity';
 import { VideoEntity } from '../../video/video.entity';
 
