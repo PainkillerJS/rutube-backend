@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToMany } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
 import { CommentEntity } from '../comment/comment.entity';
 import { BaseEntity } from '../common/utils/base.entity';
@@ -24,7 +24,7 @@ export class VideoEntity extends BaseEntity {
 	@Column({ default: '', type: 'text' })
 	description: string;
 
-	@OneToMany(() => UserEntity, (user) => user.videos)
+	@ManyToOne(() => UserEntity, (user) => user.videos)
 	@JoinColumn({ name: 'user_id' })
 	userId: UserEntity;
 
