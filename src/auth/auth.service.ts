@@ -11,13 +11,16 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { UserEntity } from '../user/entities/user.entity';
+import { UserService } from '../user/user.service';
 
 import { AuthDto } from './dto/auth.dto';
+
 @Injectable()
 export class AuthService {
 	constructor(
 		@InjectRepository(UserEntity)
 		private readonly userRepository: Repository<UserEntity>,
+		private readonly userService: UserService,
 		private readonly jwtService: JwtService,
 	) {}
 
@@ -36,7 +39,7 @@ export class AuthService {
 			select: ['id', 'email', 'password'],
 		});
 
-		if (user) {
+		if (!user) {
 			throw new NotFoundException('Пользователь не найден');
 		}
 
@@ -58,13 +61,7 @@ export class AuthService {
 	}
 
 	async register({ email, password }: AuthDto) {
-		const oldUser = await this.userRepository.findOneBy({
-			email,
-		});
-
-		if (oldUser) {
-			return new BadRequestException('Email Занят');
-		}
+		await this.userService.isCheckUserByEmail(email);
 
 		const salt = await genSalt(10);
 

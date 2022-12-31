@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { getJwtConfig } from '../config/jwt.config';
 import { UserEntity } from '../user/entities/user.entity';
+import { UserModule } from '../user/user.module';
 
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { AuthController } from './auth.controller';
@@ -19,6 +20,7 @@ import { AuthService } from './auth.service';
 			useFactory: getJwtConfig,
 		}),
 		TypeOrmModule.forFeature([UserEntity]),
+		UserModule,
 	],
 	controllers: [AuthController],
 	providers: [AuthService, JwtStrategy],

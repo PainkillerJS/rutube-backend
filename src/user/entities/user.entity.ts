@@ -31,15 +31,12 @@ export class UserEntity extends BaseEntity {
 	@OneToMany(() => VideoEntity, (video) => video.userId)
 	videos: VideoEntity[];
 
-	@OneToMany(
-		() => SubscriptionsEntity,
-		(subscription) => subscription.fromUserId,
-	)
+	@OneToMany(() => SubscriptionsEntity, (subscription) => subscription.fromUser)
 	subscriptions: SubscriptionsEntity[];
 
 	@OneToMany(
 		() => SubscriptionsEntity,
-		(subscription) => subscription.toChannelId,
+		(subscription) => subscription.toChannel,
 	)
 	subscribers: SubscriptionsEntity[];
 }

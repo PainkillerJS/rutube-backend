@@ -5,14 +5,21 @@ import { CommentEntity } from '../comment/comment.entity';
 import { VideoEntity } from '../video/video.entity';
 
 import { SubscriptionsEntity } from './entities/subscriptions.entity';
+import { UserEntity } from './entities/user.entity';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
 @Module({
 	imports: [
-		TypeOrmModule.forFeature([VideoEntity, CommentEntity, SubscriptionsEntity]),
+		TypeOrmModule.forFeature([
+			VideoEntity,
+			CommentEntity,
+			SubscriptionsEntity,
+			UserEntity,
+		]),
 	],
 	controllers: [UserController],
 	providers: [UserService],
+	exports: [UserService],
 })
 export class UserModule {}
