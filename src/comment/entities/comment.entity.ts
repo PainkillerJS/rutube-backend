@@ -1,8 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
-import { BaseEntity } from '../common/utils/base.entity';
-import { UserEntity } from '../user/entities/user.entity';
-import { VideoEntity } from '../video/entities/video.entity';
+import { BaseEntity } from '../../common/utils/base.entity';
+import { UserEntity } from '../../user/entities/user.entity';
+import { VideoEntity } from '../../video/entities/video.entity';
 
 @Entity('comment')
 export class CommentEntity extends BaseEntity {

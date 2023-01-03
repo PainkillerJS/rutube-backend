@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
-import { CommentEntity } from '../../comment/comment.entity';
+import { CommentEntity } from '../../comment/entities/comment.entity';
 import { BaseEntity } from '../../common/utils/base.entity';
 import { UserEntity } from '../../user/entities/user.entity';
 
