@@ -1,4 +1,4 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsOptional, IsString } from 'class-validator';
 
 class UserDto {
 	@IsEmail()
@@ -14,6 +14,7 @@ class UserDto {
 	description: string;
 
 	@IsString()
+	@IsOptional()
 	password?: string;
 }
 

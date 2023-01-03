@@ -1,6 +1,3 @@
-import { compare, genSalt, hash } from 'bcryptjs';
-import { Repository } from 'typeorm';
-
 import {
 	BadRequestException,
 	Injectable,
@@ -9,6 +6,9 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
+
+import { compare, genSalt, hash } from 'bcryptjs';
+import { Repository } from 'typeorm';
 
 import { UserEntity } from '../user/entities/user.entity';
 import { UserService } from '../user/user.service';

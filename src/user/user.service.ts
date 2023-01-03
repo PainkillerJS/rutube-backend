@@ -1,12 +1,12 @@
-import { genSalt, getSalt, hash } from 'bcryptjs';
-import { Repository } from 'typeorm';
-
 import {
 	BadRequestException,
 	Injectable,
 	NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+
+import { genSalt, hash } from 'bcryptjs';
+import { Repository } from 'typeorm';
 
 import UserDto from './dto/user.dto';
 import { SubscriptionsEntity } from './entities/subscriptions.entity';

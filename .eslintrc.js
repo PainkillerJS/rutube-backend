@@ -28,6 +28,8 @@ module.exports = {
 			1,
 			{
 				groups: [
+					// nest.
+					['^@nestjs'],
 					// External packages.
 					['^'],
 					// Internal packages.
