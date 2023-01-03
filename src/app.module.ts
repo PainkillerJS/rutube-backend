@@ -9,17 +9,17 @@ import { UserModule } from './user/user.module';
 import { VideoModule } from './video/video.module';
 
 @Module({
-	imports: [
-		ConfigModule.forRoot(),
-		TypeOrmModule.forRootAsync({
-			imports: [ConfigModule],
-			inject: [ConfigService],
-			useFactory: getTypeOrmConfig,
-		}),
-		UserModule,
-		VideoModule,
-		CommentModule,
-		AuthModule,
-	],
+  imports: [
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: getTypeOrmConfig,
+    }),
+    UserModule,
+    VideoModule,
+    CommentModule,
+    AuthModule,
+  ],
 })
 export class AppModule {}

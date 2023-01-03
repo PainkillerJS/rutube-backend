@@ -4,5 +4,5 @@ import { CommentService } from './comment.service';
 
 @Controller('comment')
 export class CommentController {
-	constructor(private readonly commentService: CommentService) {}
+  constructor(private readonly commentService: CommentService) {}
 }
